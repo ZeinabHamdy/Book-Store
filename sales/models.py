@@ -105,6 +105,7 @@ class Order(models.Model):
         Customer,
         on_delete=models.CASCADE,
         null=False,
+        related_name='orders'
     )
 
     def __str__(self):
@@ -124,15 +125,16 @@ class Item(models.Model):
         Order,
         on_delete=models.CASCADE,
         null =False,
+        related_name='items',
     )
 
     book = models.ForeignKey(
         'store.Book',
         on_delete=models.CASCADE,
         null=False,
+        related_name='items'  # to don't write 'item_set' => write items in queries
     )
 
     @property
     def total_price(self):
         return self.quantity * self.book.price if self.quantity else 0
-
