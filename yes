@@ -1,0 +1,23 @@
+[33mcommit cecc58a8a6ea44d5fa4ac05efaa30a7188469bcc[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: ZeinabHamdy <zeinabhamdy1010@gmail.com>
+Date:   Thu Nov 21 20:07:15 2024 +0200
+
+    Some changes
+
+[33mcommit 016a24163768b0e2ea652843194a4f53866e71f3[m
+Author: ZeinabHamdy <zeinabhamdy1010@gmail.com>
+Date:   Thu Nov 21 00:15:33 2024 +0200
+
+    added models for the customer, book, author, category, item, order tables
+
+[33mcommit 4280f5f2c2759f5c31bcb41a35ec7f2a76cebfb1[m
+Author: ZeinabHamdy <zeinabhamdy1010@gmail.com>
+Date:   Tue Nov 5 16:10:39 2024 +0200
+
+    add author, category models -still in progress
+
+[33mcommit b2f793bf7e6f89a953d036f0d0585f3460b82ad8[m
+Author: ZeinabHamdy <zeinabhamdy1010@gmail.com>
+Date:   Tue Nov 5 15:30:03 2024 +0200
+
+    init commit

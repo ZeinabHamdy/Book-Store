@@ -84,15 +84,6 @@ class Order(models.Model):
             ('canceled','canceled')
         ],
     )
-    total_price=models.DecimalField(
-        max_digits=10,
-        decimal_places=2,
-        null=False,
-        blank=False,
-        validators=[
-            MinValueValidator(0.00),
-        ],
-    )
     order_date=models.DateTimeField(
         null=False,
         blank=False,
@@ -107,6 +98,10 @@ class Order(models.Model):
         null=False,
         related_name='orders'
     )
+
+    @property
+    def total_price(self):
+        return sum(item.total_price for item in self.items.all())
 
     def __str__(self):
         return f"Customer : {self.customer.username} Order : {self.id}"
@@ -135,6 +130,10 @@ class Item(models.Model):
         related_name='items'  # to don't write 'item_set' => write items in queries
     )
 
+    def price_after_discount(self):
+        return self.book.price - (self.book.discount * self.book.price) / 100
+
+
     @property
     def total_price(self):
-        return self.quantity * self.book.price if self.quantity else 0
+        return self.quantity *  self.price_after_discount() if self.quantity else 0

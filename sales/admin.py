@@ -10,6 +10,7 @@ class ItemAdmin(admin.ModelAdmin):
 
 class OrderAdmin(admin.ModelAdmin):
     list_display = ('id','customer')
+    readonly_fields = ('total_price',)  
 
 admin.site.register(Customer)
 admin.site.register(Order, OrderAdmin)
