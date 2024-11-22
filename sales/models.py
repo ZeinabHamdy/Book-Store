@@ -18,15 +18,12 @@ def validateUsername(value):
         else:
             raise ValidationError('username should be alpha/digit/_ values only.')
 
-
 def validatePhone(value):
     if value[0] !='+' and not value[0].isdigit():
         raise ValidationError('that is not a phone number!')
-
     for idx in range(1,len(value)) :
         if not value[idx].isdigit():
             raise ValidationError('that is not a phone number!')
-
 
 
 class Customer(models.Model):
@@ -65,12 +62,8 @@ class Customer(models.Model):
         blank=True,
     )
 
-
     def __str__(self):
         return self.username
-
-
-
 
 
 class Order(models.Model):
@@ -103,9 +96,6 @@ class Order(models.Model):
     def total_price(self):
         return sum(item.total_price for item in self.items.all())
 
-    def __str__(self):
-        return f"Customer : {self.customer.username} Order : {self.id}"
-
 
 class Item(models.Model):
     quantity=models.IntegerField(
@@ -115,14 +105,12 @@ class Item(models.Model):
             MinValueValidator(1),
         ],
     )
-
     order = models.ForeignKey(
         Order,
         on_delete=models.CASCADE,
         null =False,
         related_name='items',
     )
-
     book = models.ForeignKey(
         'store.Book',
         on_delete=models.CASCADE,
@@ -132,7 +120,6 @@ class Item(models.Model):
 
     def price_after_discount(self):
         return self.book.price - (self.book.discount * self.book.price) / 100
-
 
     @property
     def total_price(self):

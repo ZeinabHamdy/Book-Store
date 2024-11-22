@@ -2,7 +2,6 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 
-
 class Author(models.Model):
     name = models.CharField(
         max_length=100,
@@ -11,10 +10,8 @@ class Author(models.Model):
         unique=True,
     )
 
-
     def __str__(self):
         return self.name
-
 
 
 class Category(models.Model):
@@ -25,15 +22,13 @@ class Category(models.Model):
         unique=True,
     )
 
+    def __str__(self):
+        return self.name
+
 
     class Meta:
         verbose_name = 'Category'  # Singular name
         verbose_name_plural = 'Categories'  # Plural name
-
-
-    def __str__(self):
-        return self.name
-
 
 
 class Book(models.Model):
@@ -82,11 +77,5 @@ class Book(models.Model):
     author = models.ManyToManyField(Author)
     category = models.ManyToManyField(Category)
 
-
-    def get_final_price(self):
-        return max(0,self.price - (self.price * self.discount / 100))
-
-
     def __str__(self):
         return self.title
-
