@@ -1,0 +1,29 @@
+name = {{name}}
+age = {{age}}
+
+<!--  can use filter on them -->
+
+<pre> Your name : {{name}} <hr>
+    Your age : {{age}} 
+</pre>
+<!-- name2 = {{name|capfirst}} capitalize first char in text <br>
+name2 = {{name|default:'not found'}}<br>  if name is null make default value -->
+
+
+<!-- make slice(substring:(startpos: endposition+1)) ()-->
+{{name|slice:'1:4'}}  
+<!-- start from first letter -->
+{{name|slice:':4'}}  
+{{name|length}}
+
+<!-- add mazen to this text name (in this sentence only not the original string) -->
+{{name|add:' mazen'}}
+
+<br><br> {{name}}
+
+<!-- cut anything in the single quote from this sentence (in this sentence only not the original string) -->
+<br> {{name|cut:'a'}}
+
+<br> {{name}}
+
+<br> {{name|slice:':6'|cut:'a'}}

@@ -4,3 +4,9 @@ from django.http import HttpResponse
 
 def home(req):
     return HttpResponse('Welcome in Store Page...')
+
+def ourStore(req):
+    return render(req, 'store/index.html',
+    {'name' : 'zainab hamdy ali hassan',
+    'age' : 21,
+    })
